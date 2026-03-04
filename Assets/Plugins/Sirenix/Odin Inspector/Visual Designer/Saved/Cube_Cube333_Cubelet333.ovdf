@@ -1,0 +1,138 @@
+OVDF v1.1
+Cube.Cube333.Cubelet333, Assembly-CSharp
+MetaGuid:e4b1c038f555477286d58be0f4459239
+
+# $4h2224VcfJgWfyM2Mvhbfi
+Position: $root:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $9TKh3QfgDJgsMNvJYqda3F
+Position: $4h2224VcfJgWfyM2Mvhbfi:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $FVn9JU6wXrVaAvMoJUtCSL
+Position: $4h2224VcfJgWfyM2Mvhbfi:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $LczoiRvf8yp4aaf49jrbTv
+Position: $root:2
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $XsonnQmproMNypCi2iAXxK
+Position: $LczoiRvf8yp4aaf49jrbTv:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $XBrmJVZSU9JPyWgsw4fdrQ
+Position: $LczoiRvf8yp4aaf49jrbTv:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $JtehWJVMeU7zdJLJLt51G9
+Position: $root:3
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $TrsUzx74qSMa63cNiEztRM
+Position: $JtehWJVMeU7zdJLJLt51G9:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $4X4J9Y8rCe1N14U61Cmyr5
+Position: $JtehWJVMeU7zdJLJLt51G9:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $F732qH1Rns3SqUbbTgJZf
+Position: $root:4
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $2veJTR6GdyTyRWrj4YHts3
+Position: $F732qH1Rns3SqUbbTgJZf:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $JduhHmCztbcKsUiCcAdb7e
+Position: $F732qH1Rns3SqUbbTgJZf:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $VkkonByqP6P9toWeWgzTnv
+Position: $root:5
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $JDcHdgN4Ud7UYWmnHqXF5U
+Position: $VkkonByqP6P9toWeWgzTnv:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $9Sh47jhtyk694ABuvwS5qL
+Position: $VkkonByqP6P9toWeWgzTnv:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $Bnrsytf3g5uz9xr4jbsmZV
+Position: $root:6
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $UAagky2kcBobGiWa69RxEY
+Position: $Bnrsytf3g5uz9xr4jbsmZV:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $BZZmUKEWBzof9WVNY9nLKd
+Position: $Bnrsytf3g5uz9xr4jbsmZV:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# Right
+Position: $FVn9JU6wXrVaAvMoJUtCSL:0
+
+# Left
+Position: $9TKh3QfgDJgsMNvJYqda3F:0
+
+# Bottom
+Position: $XBrmJVZSU9JPyWgsw4fdrQ:0
+
+# Top
+Position: $XsonnQmproMNypCi2iAXxK:0
+
+# Back
+Position: $4X4J9Y8rCe1N14U61Cmyr5:0
+
+# Front
+Position: $TrsUzx74qSMa63cNiEztRM:0
+
+# IsTop
+Position: $2veJTR6GdyTyRWrj4YHts3:0
+Visibility: Shown
+
+# IsBottom
+Position: $JduhHmCztbcKsUiCcAdb7e:0
+Visibility: Shown
+
+# IsLeft
+Position: $JDcHdgN4Ud7UYWmnHqXF5U:0
+Visibility: Shown
+
+# IsRight
+Position: $9Sh47jhtyk694ABuvwS5qL:0
+Visibility: Shown
+
+# IsFront
+Position: $UAagky2kcBobGiWa69RxEY:0
+Visibility: Shown
+
+# IsBack
+Position: $BZZmUKEWBzof9WVNY9nLKd:0
+Visibility: Shown
+
+# IsInFace(Cube3Axis)
+Visibility: Hidden
+
+# OnValidate()
+Visibility: Hidden
+
+# Select()
+Position: $root:17
+Visibility: Hidden
+
+# Deselect()
+Position: $root:18
+
+# IsUp
+Position: $2veJTR6GdyTyRWrj4YHts3:0
+Visibility: Shown
+
+# IsDown
+Position: $JduhHmCztbcKsUiCcAdb7e:0
+Visibility: Shown
