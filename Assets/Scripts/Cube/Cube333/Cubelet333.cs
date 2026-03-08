@@ -19,12 +19,12 @@ namespace Cube.Cube333
         public Renderer Front;
         public Renderer Back;
 
-        [ReadOnly] private bool IsUp  => transform.position.y > OffsetDelta;
-        [ReadOnly] private bool IsDown  => transform.position.y < -OffsetDelta;
-        [ReadOnly] private bool IsLeft  => transform.position.z < -OffsetDelta;
-        [ReadOnly] private bool IsRight  => transform.position.z > OffsetDelta;
-        [ReadOnly] private bool IsFront  => transform.position.x > OffsetDelta;
-        [ReadOnly] private bool IsBack  => transform.position.x < -OffsetDelta;
+        [ReadOnly] private bool IsUp  => transform.localPosition.y > OffsetDelta;
+        [ReadOnly] private bool IsDown  => transform.localPosition.y < -OffsetDelta;
+        [ReadOnly] private bool IsLeft  => transform.localPosition.z < -OffsetDelta;
+        [ReadOnly] private bool IsRight  => transform.localPosition.z > OffsetDelta;
+        [ReadOnly] private bool IsFront  => transform.localPosition.x > OffsetDelta;
+        [ReadOnly] private bool IsBack  => transform.localPosition.x < -OffsetDelta;
 
         public bool IsInFace(Cube3Axis axis) => axis switch
         {

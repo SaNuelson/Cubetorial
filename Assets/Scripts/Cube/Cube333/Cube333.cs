@@ -3,6 +3,7 @@ using System.Linq;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Cube.Cube333
 {
@@ -22,10 +23,10 @@ namespace Cube.Cube333
 
     public class Cube333 : MonoBehaviour
     {
-        [ReadOnly] public Cubelet333[] Cubelets;
+        [ReadOnly] public Cubelet333[] cubelets;
         private Camera _camera;
 
-        [ReadOnly] public bool IsAnimating;
+        [ReadOnly] public bool isAnimating;
 
         private void Start()
         {
@@ -34,22 +35,24 @@ namespace Cube.Cube333
 
         private void OnValidate()
         {
-            Cubelets = this.GetComponentsInChildren<Cubelet333>();
+            cubelets = this.GetComponentsInChildren<Cubelet333>();
 
-            if (Cubelets.Length != 26)
+            if (cubelets.Length != 26)
             {
-                Debug.LogWarning($"Invalid Cube3, should have 26 cubelets, has {Cubelets.Length}");
+                Debug.LogWarning($"Invalid Cube3, should have 26 cubelets, has {cubelets.Length}");
             }
         }
 
         [Button]
-        public void Rotate(Cube3Axis axis, bool clockwise = true)
+        public void Rotate(Cube3Axis axis, bool reverse = false)
         {
-            if (IsAnimating)
+            if (isAnimating)
                 return;
-            IsAnimating = true;
+            isAnimating = true;
             
-            var faceCubelets = Cubelets.Where(cubelet => cubelet.IsInFace(axis));
+            var faceCubelets = cubelets
+                .Where(cubelet => cubelet.IsInFace(axis))
+                .ToList();
 
             var rotation = axis switch
             {
@@ -65,19 +68,18 @@ namespace Cube.Cube333
                 _ => throw new ArgumentOutOfRangeException(nameof(axis), axis, null)
             };
             
-            if (!clockwise)
+            if (reverse)
                 rotation *= -1;
+
+            var face = new GameObject("Face");
+            face.transform.SetParent(transform, false);
             
-            var face = new GameObject("Face")
-            {
-                transform = { parent = transform }
-            };
             foreach (var cubelet in faceCubelets)
             {
                 cubelet.transform.SetParent(face.transform, true);
             }
             
-            var tween = face.transform.DORotate(rotation, .5f);
+            var tween = face.transform.DOLocalRotate(rotation, .5f, RotateMode.LocalAxisAdd);
             tween.onComplete += () =>
             {
                 foreach (var cubelet in faceCubelets)
@@ -87,7 +89,7 @@ namespace Cube.Cube333
                     cubelet.transform.position = worldPos;
                 }
                 Destroy(face);
-                IsAnimating = false;
+                isAnimating = false;
             };
             DOTween.Play(tween);
         }

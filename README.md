@@ -39,4 +39,6 @@ Abstract superclass extended for each cube type.
 - [ ] Controls
   - [ ] Cubelet-based
     - hover cubelet, move in direction
-  - 
+- [ ] Rule-based solutions
+  - class Algorithm, calls some API that both rotates cube and prints out hints / tutorial for player
+  - bonus points if it can work with arbitrary scramble. Maybe something rule/pattern-based?

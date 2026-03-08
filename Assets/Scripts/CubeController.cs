@@ -24,9 +24,9 @@ namespace DefaultNamespace
             cube.transform.Rotate(Vector3.right, vertical);
         }
 
-        public void HandleCube()
+        private void HandleCube()
         {
-            var reverse = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            var reverse = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 
             if (Input.GetKey(KeyCode.Keypad8))
             {
