@@ -65,8 +65,8 @@ namespace Cubetorial.Model.Rubik3
             var faceletOrder = FaceletOrder[slot];
             
             return (
-                       Array.IndexOf(faceletOrder, slotReferenceFacelet) 
-                       - Array.IndexOf(faceletOrder, face) 
+                       Array.IndexOf(faceletOrder, face)
+                       - Array.IndexOf(faceletOrder, slotReferenceFacelet)
                        + faceletOrder.Length) 
                    % faceletOrder.Length;
         }

@@ -19,4 +19,21 @@
         R = 1 << 4,
         L = 1 << 5,
     }
+
+    internal static class Rubik3FaceExtensions
+    {
+        public static Rubik3FaceMask ToMask(this Rubik3Face face)
+        {
+            return face switch
+            {
+                Rubik3Face.U => Rubik3FaceMask.U,
+                Rubik3Face.D => Rubik3FaceMask.D,
+                Rubik3Face.F => Rubik3FaceMask.F,
+                Rubik3Face.B => Rubik3FaceMask.B,
+                Rubik3Face.R => Rubik3FaceMask.R,
+                Rubik3Face.L => Rubik3FaceMask.L,
+                _ => throw new System.ArgumentOutOfRangeException(nameof(face), face, null)
+            };
+        }
+    }
 }

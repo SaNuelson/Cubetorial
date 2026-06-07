@@ -140,10 +140,10 @@ namespace Cubetorial.Model.Base
             IEnumerable<PuzzleMove> moves)
         {
             Id = id;
-            Faces = faces.ToArray();
-            Pieces = pieces.ToArray();
-            Slots = slots.ToArray();
-            Moves = moves.ToArray();
+            Faces = faces.ToList();
+            Pieces = pieces.ToList();
+            Slots = slots.ToList();
+            Moves = moves.ToList();
             slotIndexById = Slots
                 .Select((slot, index) => new { slot.Id, Index = index })
                 .ToDictionary(slot => slot.Id, slot => slot.Index);
@@ -155,13 +155,13 @@ namespace Cubetorial.Model.Base
 
         public string Id { get; }
 
-        public IReadOnlyList<Face> Faces { get; }
+        public List<Face> Faces { get; }
 
-        public IReadOnlyList<Piece> Pieces { get; }
+        public List<Piece> Pieces { get; }
 
-        public IReadOnlyList<PieceSlot> Slots { get; }
+        public List<PieceSlot> Slots { get; }
 
-        public IReadOnlyList<PuzzleMove> Moves { get; }
+        public List<PuzzleMove> Moves { get; }
 
         public PuzzleState SolvedState { get; }
 
