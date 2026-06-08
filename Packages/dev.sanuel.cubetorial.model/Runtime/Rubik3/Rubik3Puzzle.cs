@@ -6,6 +6,8 @@ namespace Cubetorial.Model.Rubik3
 {
     public static class Rubik3Puzzle
     {
+        public const string Id = "rubik-3";
+        
         public static Puzzle Create()
         {
             var corner = new PieceKind("corner", 3);
@@ -92,7 +94,7 @@ namespace Cubetorial.Model.Rubik3
                     new List<Rubik3Face>() {Rubik3Face.D, Rubik3Face.R, Rubik3Face.U, Rubik3Face.L}),
             };
 
-            return new Model.Base.Puzzle("rubik-3", faces, pieces, slots, moves);
+            return new Model.Base.Puzzle(Id, faces, pieces, slots, moves);
         }
 
         private static PieceSlotPair CreatePieceSlot(

@@ -20,6 +20,12 @@ namespace Cubetorial.Model.Base
         public IReadOnlyList<string> SurfaceFaceIds { get; }
     }
 
+    /// <summary>
+    /// Identifies a physical piece and its orientation while it occupies a slot.
+    /// </summary>
+    /// <remarks>
+    /// The slot is implied by this value's index in <see cref="PuzzleState.PiecesBySlot"/>.
+    /// </remarks>
     public readonly struct PlacedPiece
     {
         public PlacedPiece(int pieceIndex, int orientation)
@@ -33,6 +39,10 @@ namespace Cubetorial.Model.Base
         public int Orientation { get; }
     }
 
+    /// <summary>
+    /// Describes one piece transfer within a <see cref="PuzzleMove"/>:
+    /// source slot, destination slot, and orientation delta.
+    /// </summary>
     public sealed class SlotMove
     {
         public SlotMove(int sourceSlotIndex, int destinationSlotIndex, int orientationDelta)
@@ -49,6 +59,16 @@ namespace Cubetorial.Model.Base
         public int OrientationDelta { get; }
     }
 
+    /// <summary>
+    /// Definition of a puzzle move, defines a transition of puzzle pieces via <see cref="SlotMove"/>.
+    /// </summary>
+    /// <code>
+    /// var rubik3Moves = [
+    ///   new PuzzleMove("R", rMoveTransforms),
+    ///   new PuzzleMove("U", uMoveTransforms),
+    ///   // ...
+    /// ];
+    /// </code>
     public sealed class PuzzleMove
     {
         public PuzzleMove(string notation, IEnumerable<SlotMove> slotMoves)
@@ -62,6 +82,13 @@ namespace Cubetorial.Model.Base
         public IReadOnlyList<SlotMove> SlotMoves { get; }
     }
 
+    /// <summary>
+    /// A model holding a specific scramble of a puzzle.
+    ///
+    /// Contains mapping of puzzle pieces to slots they currently occupy (piecesBySlot).
+    ///
+    /// Can be provided a <see cref="PuzzleMove"/> to obtain a resulting new <see cref="PuzzleState"/>.
+    /// </summary>
     public sealed class PuzzleState
     {
         private readonly PlacedPiece[] piecesBySlot;
@@ -127,6 +154,11 @@ namespace Cubetorial.Model.Base
         }
     }
 
+    /// <summary>
+    /// Contains a definition of a specific type of puzzle (e.g., 3x3, Skewb, Pyraminx).
+    ///
+    /// Contains its name, faces, pieces, slots, and a valid set of moves.
+    /// </summary>
     public sealed class Puzzle
     {
         private readonly Dictionary<string, int> slotIndexById;
