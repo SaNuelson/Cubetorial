@@ -127,6 +127,9 @@ namespace Cubetorial.Model.Rubik3
         {
             var moves = new List<SlotMove>();
 
+            // Faces don't change, but take part in the move
+            moves.Add(new SlotMove(slotIndex[ToSlot(axis)], slotIndex[ToSlot(axis)], 0));
+            
             // Edge transitions follow transitions + axis
             var edgeCycle = faceTransition
                 .Select(t => ToSlot(t, axis))

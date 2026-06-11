@@ -80,6 +80,9 @@ namespace Cubetorial.Model.Base
         public string Notation { get; }
 
         public IReadOnlyList<SlotMove> SlotMoves { get; }
+        
+        public IReadOnlyList<int> SourceSlotIndices 
+            => SlotMoves.Select(x => x.SourceSlotIndex).ToArray();
     }
 
     /// <summary>
