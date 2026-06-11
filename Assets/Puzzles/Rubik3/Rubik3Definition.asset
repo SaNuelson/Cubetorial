@@ -12,9 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed2ffbed94c4fe5b8d4b4bf30bbaa21, type: 3}
   m_Name: Rubik3Definition
   m_EditorClassIdentifier: Assembly-CSharp::View.PuzzleViewDefinition
+  family: 0
   Moves:
-  - MoveNotation: 
-    Title: 
-    LocalPivot: {x: 0, y: 0, z: 0}
-    LocalAxis: {x: 0, y: 0, z: 0}
-    AngleDegrees: 0
+  - MoveNotation: B
+    Title: B
+    LocalPivot: {x: 1, y: 0, z: 0}
+    LocalAxis: {x: 1, y: 0, z: 0}
+    AngleDegrees: -90
+  - MoveNotation: F
+    Title: F
+    LocalPivot: {x: -1, y: 0, z: 0}
+    LocalAxis: {x: -1, y: 0, z: 0}
+    AngleDegrees: -90
+  - MoveNotation: U
+    Title: U
+    LocalPivot: {x: 0, y: 1, z: 0}
+    LocalAxis: {x: 0, y: 1, z: 0}
+    AngleDegrees: -90
+  - MoveNotation: D
+    Title: D
+    LocalPivot: {x: 0, y: -1, z: 0}
+    LocalAxis: {x: 0, y: -1, z: 0}
+    AngleDegrees: -90
+  - MoveNotation: L
+    Title: L
+    LocalPivot: {x: 0, y: 0, z: 1}
+    LocalAxis: {x: 0, y: 0, z: 1}
+    AngleDegrees: -90
+  - MoveNotation: R
+    Title: R
+    LocalPivot: {x: 0, y: 0, z: -1}
+    LocalAxis: {x: 0, y: 0, z: -1}
+    AngleDegrees: -90
