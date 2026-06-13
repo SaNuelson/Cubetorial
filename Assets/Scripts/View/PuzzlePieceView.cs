@@ -7,6 +7,6 @@ namespace View
     {
         public int SlotIndex;
 
-        public Piece Model;
+        [HideInInspector] public Piece Model;
     }
 }

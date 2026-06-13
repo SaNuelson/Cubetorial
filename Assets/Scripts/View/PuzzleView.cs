@@ -62,6 +62,7 @@ namespace View
             var pieces = GetComponentsInChildren<PuzzlePieceView>();
             foreach (var piece in pieces)
             {
+                piece.Model = model.Pieces[piece.SlotIndex];
                 PieceFromSlot.Add(piece.SlotIndex, piece);
                 PieceInSlot.Add(piece.SlotIndex, piece);
             }
@@ -95,7 +96,7 @@ namespace View
             var moveView = definition.GetMoveByNotation(moveId);
             AnimateMove(moveView, movedPieces);
             
-            state.Apply(moveModel);
+            state = state.Apply(moveModel);
         }
 
         #endregion
@@ -154,7 +155,7 @@ namespace View
                 var centerPosition = transform.position;
                 var pivotPosition = centerPosition + moveView.LocalPivot;
                 
-                Gizmos.DrawSphere(pivotPosition, 0.1f);
+                Gizmos.DrawSphere(pivotPosition, 0.05f);
                 Handles.Label(pivotPosition, moveView.MoveNotation);
                 
                 // Axis line
@@ -163,11 +164,12 @@ namespace View
                 // Rotation arc
                 var radiusVector = moveView.LocalAxis.normalized;
                 var fromDirection = Vector3.Cross(moveView.LocalAxis, Vector3.up).normalized;
-                if (fromDirection.sqrMagnitude < 0.01f)
+                if (fromDirection.sqrMagnitude < 0.1f)
                 {
                     fromDirection = Vector3.Cross(moveView.LocalAxis, Vector3.right).normalized;
                 }
-                var arcRadius = moveView.LocalAxis.magnitude;
+
+                var arcRadius = 1f;//moveView.LocalAxis.magnitude;
                 
                 using (new Handles.DrawingScope(Color.white.WithAlpha(0.2f)))
                 {

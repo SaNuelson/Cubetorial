@@ -8,6 +8,8 @@ namespace Cubetorial.Model.Skewb
 {
     public class SkewbPuzzle
     {
+        public const PuzzleFamily Family = PuzzleFamily.Skewb;
+        
         public static Puzzle Create()
         {
             var corner = new PieceKind("corner", 3);
@@ -91,7 +93,7 @@ namespace Cubetorial.Model.Skewb
                     new List<SkewbFace>() {SkewbFace.D, SkewbFace.L, SkewbFace.F}),
             };
 
-            return new Model.Base.Puzzle("skewb", faces, pieces, slots, moves);
+            return new Model.Base.Puzzle(Family.ToString(), faces, pieces, slots, moves);
         }
 
         private static PieceSlotPair CreatePieceSlot(

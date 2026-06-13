@@ -1,4 +1,5 @@
 ﻿using Editor.Generators.Rubik3;
+using Editor.Generators.Skewb;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
@@ -17,6 +18,16 @@ namespace Editor
                 return;
             
             Rubik3SkeletonGenerator.CreateRubik3Skeleton(root);
+        }
+
+        [MenuItem("Cubetorial/Generate/Skewb/Skeleton")]
+        public static void CreateSkewbSkeleton()
+        {
+            var root = GetOrCreateRoot();
+            if (root is null)
+                return;
+            
+            SkewbSkeletonGenerator.CreateSkewbSkeleton(root);
         }
 
         #endregion

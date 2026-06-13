@@ -1,16 +1,16 @@
 ﻿using System;
 using Cubetorial.Model.Base;
 using Cubetorial.Model.Rubik3;
-using Unity.VisualScripting;
+using Cubetorial.Model.Skewb;
 using UnityEditor;
 using UnityEngine;
 using View;
 
-namespace Editor.Generators.Rubik3
+namespace Editor.Generators.Skewb
 {
-    public static class Rubik3SkeletonGenerator
+    public static class SkewbSkeletonGenerator
     {
-        public static void CreateRubik3Skeleton(GameObject root)
+        public static void CreateSkewbSkeleton(GameObject root)
         {
             var modelView = root.GetComponent<PuzzleView>();
             Puzzle model;
@@ -21,7 +21,7 @@ namespace Editor.Generators.Rubik3
             else
             {
                 model = root.GetComponent<PuzzleView>().Model;
-                if (model.Id != Rubik3Puzzle.Family.ToString())
+                if (model.Id != SkewbPuzzle.Family.ToString())
                 {
                     Debug.LogError($"Selected root has missing or invalid puzzle type. Expected {Rubik3Puzzle.Family.ToString()}, got {model.Id}.");
                     return;
@@ -39,6 +39,8 @@ namespace Editor.Generators.Rubik3
                     {
                         if (i == 0 && j == 0 && k == 0)
                             continue;
+                        if ((i == 0 ? 1 : 0) + (j == 0 ? 1 : 0) + (k == 0 ? 1 : 0) == 1)
+                            continue;
                         
                         var slot = (Rubik3Slot)(iOrder[i+1] | jOrder[j+1] | kOrder[k+1]);
                         var label = slot.ToString();
@@ -48,7 +50,7 @@ namespace Editor.Generators.Rubik3
                         if (cube is null)
                         {
                             cube = new GameObject(label);
-                            Undo.RegisterCreatedObjectUndo(cube, "Create Rubik3 Cube");
+                            Undo.RegisterCreatedObjectUndo(cube, "Create Skewb Cube");
                             cube.transform.SetParent(root.transform, false);
                             cube.transform.localPosition = new Vector3(i, j, k);
                         }
