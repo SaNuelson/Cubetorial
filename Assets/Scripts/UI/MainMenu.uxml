@@ -1,0 +1,67 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=23872f204808c39438db04d12232c259&amp;type=3#MainMenu"/>
+    <ui:VisualElement name="Screen" class="screen">
+        <ui:VisualElement picking-mode="Ignore" class="bg-blob blob-left"/>
+        <ui:VisualElement picking-mode="Ignore" class="bg-blob blob-right"/>
+        <ui:VisualElement name="Content" class="content" style="justify-content: flex-start; align-self: auto; align-content: flex-start; flex-direction: column;">
+            <ui:VisualElement name="AppLogo" picking-mode="Ignore" class="app-logo">
+                <ui:VisualElement class="logo-grid">
+                    <ui:VisualElement class="logo-cell c-red"/>
+                    <ui:VisualElement class="logo-cell c-white"/>
+                    <ui:VisualElement class="logo-cell c-green"/>
+                    <ui:VisualElement class="logo-cell c-yellow"/>
+                    <ui:VisualElement class="logo-cell c-blue"/>
+                    <ui:VisualElement class="logo-cell c-orange"/>
+                    <ui:VisualElement class="logo-cell c-white"/>
+                    <ui:VisualElement class="logo-cell c-green"/>
+                    <ui:VisualElement class="logo-cell c-yellow"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Label text="Cubetorial" name="Title" class="app-title"/>
+            <ui:Label text="Step-by-step cube guides with animated 3D reasoning." name="Subtitle" class="app-subtitle"/>
+            <ui:VisualElement name="Hero" picking-mode="Ignore" class="hero">
+                <ui:VisualElement class="hero-shadow"/>
+                <ui:VisualElement name="HeroImage" class="hero-grid">
+                    <ui:VisualElement class="cube-tile c-white"/>
+                    <ui:VisualElement class="cube-tile c-yellow"/>
+                    <ui:VisualElement class="cube-tile c-green"/>
+                    <ui:VisualElement class="cube-tile c-red"/>
+                    <ui:VisualElement class="cube-tile c-blue"/>
+                    <ui:VisualElement class="cube-tile c-orange"/>
+                    <ui:VisualElement class="cube-tile c-white"/>
+                    <ui:VisualElement class="cube-tile c-green"/>
+                    <ui:VisualElement class="cube-tile c-yellow"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Cards" class="card-list">
+                <ui:VisualElement name="GuidesCard" class="card">
+                    <ui:VisualElement class="card-icon card-icon--cyan">
+                        <ui:Label text="BOOK" class="card-icon-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="card-text">
+                        <ui:Label text="Guides" class="card-title"/>
+                        <ui:Label text="Learn 3×3, Skewb and more through visual tutorials." class="card-desc"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="SandboxCard" class="card">
+                    <ui:VisualElement class="card-icon card-icon--purple">
+                        <ui:Label text="ROT" class="card-icon-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="card-text">
+                        <ui:Label text="Sandbox" class="card-title"/>
+                        <ui:Label text="Freely inspect and play with simulated cubes." class="card-desc"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="SolverCard" class="card card--disabled">
+                    <ui:VisualElement class="card-icon card-icon--dim">
+                        <ui:Label text="SCAN" class="card-icon-label"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="card-text">
+                        <ui:Label text="Solver" class="card-title"/>
+                        <ui:Label text="Planned camera/state solver for later." class="card-desc"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -180,7 +180,7 @@ namespace View
                 // Draw arrow at the end of the arc
                 var angleRadians = moveView.AngleDegrees * Mathf.Deg2Rad;
                 var endDirection = Quaternion.AngleAxis(moveView.AngleDegrees, moveView.LocalAxis.normalized) * fromDirection;
-                var arcEndPoint = moveView.LocalPivot + endDirection * arcRadius;
+                var arcEndPoint = pivotPosition + endDirection * arcRadius;
                 var arrowDirection = Vector3.Cross(moveView.LocalAxis.normalized, endDirection).normalized;
                 var arrowSize = arcRadius * 0.15f;
                 var arrowWing1 = arcEndPoint - arrowDirection * arrowSize + endDirection * arrowSize * 0.3f;
