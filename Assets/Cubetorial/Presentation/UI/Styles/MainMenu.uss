@@ -1,0 +1,111 @@
+:root {
+    --background: rgb(16, 18, 24);
+    --panel: rgb(30, 34, 44);
+    --panel-border: rgb(58, 64, 78);
+    --text: rgb(246, 248, 252);
+    --muted: rgb(166, 174, 190);
+    --primary: rgb(61, 184, 163);
+    --primary-hover: rgb(72, 205, 181);
+    --secondary: rgb(45, 51, 64);
+    --secondary-hover: rgb(55, 62, 78);
+}
+
+.screen {
+    flex-grow: 1;
+    background-color: var(--background);
+    padding: 24px;
+    justify-content: center;
+}
+
+.panel {
+    width: 100%;
+    max-width: 430px;
+    align-self: center;
+    background-color: var(--panel);
+    border-width: 1px;
+    border-color: var(--panel-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.title {
+    font-size: 32px;
+    -unity-font-style: bold;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    white-space: normal;
+}
+
+.section-title {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.body {
+    font-size: 16px;
+    color: var(--text);
+    white-space: normal;
+    margin-bottom: 16px;
+}
+
+.hint {
+    font-size: 14px;
+    color: var(--muted);
+    white-space: normal;
+    margin-bottom: 16px;
+}
+
+.primary-button,
+.secondary-button {
+    height: 48px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border-width: 0;
+    font-size: 16px;
+    -unity-font-style: bold;
+}
+
+.primary-button {
+    background-color: var(--primary);
+    color: rgb(9, 18, 18);
+}
+
+.primary-button:hover {
+    background-color: var(--primary-hover);
+}
+
+.secondary-button {
+    background-color: var(--secondary);
+    color: var(--text);
+}
+
+.secondary-button:hover {
+    background-color: var(--secondary-hover);
+}
+
+.row {
+    flex-direction: row;
+    margin-top: 8px;
+}
+
+.row-button {
+    flex-grow: 1;
+}
+
+.row-button-left {
+    margin-right: 8px;
+}
+
+.step-counter {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}

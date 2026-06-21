@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806258deec9c4ea7be7deea181437c37, type: 3}
+  m_Name: Beginner3x3Guide
+  m_EditorClassIdentifier: Assembly-CSharp::Cubetorial.Tutorials.Scripts.TutorialGuide
+  titleKey: beginner_3x3.title
+  descriptionKey: beginner_3x3.description
+  family: 0
+  sections:
+  - rid: 1000
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000
+      type: {class: GuideSection, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
+      data:
+        title: First layer orientation
+        stateSetup:
+          mode: 1
+          scrambleMoves:
+          - R
+          - U
+          - R'
+          - U'
+          - F
+          - U
+          - F'
+        nodes:
+        - rid: 1001
+        - rid: 1005
+        - rid: 1010
+    - rid: 1001
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
+      data:
+        title: Start from a fixed scramble
+        stateSetup:
+          mode: 1
+          scrambleMoves:
+          - R
+          - U
+          - R'
+          - U'
+          - F
+          - U
+          - F'
+        body: This guide starts from a known scramble so the lesson player can show the same pieces every time.
+        actions:
+        - rid: 1002
+    - rid: 1002
+      type: {class: TutorialAnnotation, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
+      data:
+        annotatedCubeId: front_top_edge
+        text: Look for the edge piece that belongs in the front top slot.
+    - rid: 1005
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
+      data:
+        title: Watch the setup move
+        stateSetup:
+          mode: 0
+          scrambleMoves: []
+        body: The first move turns the top layer so the target edge can be lined up before insertion.
+        actions:
+        - rid: 1006
+        - rid: 1007
+    - rid: 1006
+      type: {class: TutorialFocus, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
+      data:
+        focusedCubeId: top_layer
+    - rid: 1007
+      type: {class: TutorialMove, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
+      data:
+        moveId: U
+    - rid: 1010
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
+      data:
+        title: Check the result
+        stateSetup:
+          mode: 0
+          scrambleMoves: []
+        body: After the move, the highlighted piece is easier to compare against its target slot.
+        actions:
+        - rid: 1011
+        - rid: 1012
+    - rid: 1011
+      type: {class: TutorialHighlight, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
+      data:
+        highlightedCubeIds:
+        - front_top_edge
+        - front_top_slot
+    - rid: 1012
+      type: {class: TutorialAnnotation, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
+      data:
+        annotatedCubeId: front_top_slot
+        text: This placeholder target id gives the UI something to show before real view bindings exist.
