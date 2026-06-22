@@ -3,9 +3,10 @@
     <ui:VisualElement name="Screen" enabled="true" class="screen">
         <ui:VisualElement class="panel">
             <ui:Label text="Cubetorial" class="title"/>
-            <ui:Label text="Prototype lesson flow" class="subtitle"/>
-            <ui:Button name="StartTutorialButton" text="Start tutorial" class="primary-button"/>
-            <ui:Button name="OpenSandboxButton" text="Open sandbox" class="secondary-button"/>
+            <ui:Label text="Choose what you want to work on." class="subtitle"/>
+            <ui:Button name="GuidesButton" text="Guides" enabled="true" class="primary-button"/>
+            <ui:Button name="SandboxButton" text="Sandbox" class="secondary-button"/>
+            <ui:Button name="SolverButton" text="Solver" enabled="false" class="secondary-button"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

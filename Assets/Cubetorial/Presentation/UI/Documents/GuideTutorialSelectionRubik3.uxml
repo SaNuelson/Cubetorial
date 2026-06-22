@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Cubetorial/Presentation/UI/Styles/MainMenu.uss?fileID=7433441132597879392&amp;guid=23872f204808c39438db04d12232c259&amp;type=3#MainMenu"/>
+    <ui:VisualElement name="Screen" class="screen">
+        <ui:VisualElement class="panel">
+            <ui:Label text="3x3 Guides" class="title"/>
+            <ui:Label text="Prototype tutorial list for the 3x3 cube." class="subtitle"/>
+            <ui:Button name="Beginner3x3Button" text="Beginner method" class="primary-button"/>
+            <ui:Button name="BackButton" text="Back" class="secondary-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

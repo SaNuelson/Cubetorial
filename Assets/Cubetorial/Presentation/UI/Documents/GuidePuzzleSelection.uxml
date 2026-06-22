@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Cubetorial/Presentation/UI/Styles/MainMenu.uss?fileID=7433441132597879392&amp;guid=23872f204808c39438db04d12232c259&amp;type=3#MainMenu"/>
+    <ui:VisualElement name="Screen" class="screen">
+        <ui:VisualElement class="panel">
+            <ui:Label text="Guides" class="title"/>
+            <ui:Label text="Pick a puzzle family to see available tutorials." class="subtitle"/>
+            <ui:Button name="Rubik3GuidePuzzleButton" text="3x3 Cube" class="primary-button"/>
+            <ui:Button name="SkewbGuidePuzzleButton" text="Skewb" class="secondary-button"/>
+            <ui:Button name="BackButton" text="Back" class="secondary-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

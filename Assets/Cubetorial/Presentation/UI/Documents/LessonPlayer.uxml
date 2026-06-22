@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Cubetorial/Presentation/UI/Styles/MainMenu.uss?fileID=7433441132597879392&amp;guid=23872f204808c39438db04d12232c259&amp;type=3#MainMenu"/>
-    <ui:VisualElement name="Screen" class="screen">
-        <ui:VisualElement class="panel">
+    <ui:VisualElement name="Screen" class="screen" style="align-items: stretch; justify-content: flex-end;">
+        <ui:VisualElement class="panel" style="align-self: center; justify-content: flex-start; flex-direction: column;">
             <ui:Label text="Lesson player" class="title"/>
             <ui:Label name="StepCounter" text="Step 1 of 3" class="step-counter"/>
             <ui:Label name="StepTitle" text="Find the target pieces" class="section-title"/>
