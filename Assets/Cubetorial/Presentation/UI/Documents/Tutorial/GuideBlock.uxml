@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:VisualElement class="guide-block">
+        <ui:Label text="Block" name="BlockTitle" class="guide-block-title"/>
+        <ui:Label text="Body" name="BlockBody" class="guide-block-body"/>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:VisualElement class="guide-section">
+        <ui:Label text="Section" name="SectionTitle" class="guide-section-title"/>
+        <ui:VisualElement name="SectionChildren" class="guide-section-children"/>
+    </ui:VisualElement>
+</ui:UXML>

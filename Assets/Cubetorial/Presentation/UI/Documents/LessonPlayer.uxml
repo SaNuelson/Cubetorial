@@ -1,16 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Cubetorial/Presentation/UI/Styles/MainMenu.uss?fileID=7433441132597879392&amp;guid=23872f204808c39438db04d12232c259&amp;type=3#MainMenu"/>
-    <ui:VisualElement name="Screen" class="screen" style="align-items: stretch; justify-content: flex-end;">
-        <ui:VisualElement class="panel" style="align-self: center; justify-content: flex-start; flex-direction: column;">
-            <ui:Label text="Lesson player" class="title"/>
-            <ui:Label name="StepCounter" text="Step 1 of 3" class="step-counter"/>
-            <ui:Label name="StepTitle" text="Find the target pieces" class="section-title"/>
-            <ui:Label name="StepBody" text="This is where the authored explanation will live while the puzzle view animates the move sequence." class="body"/>
-            <ui:Label text="Puzzle rendering stays in the Unity scene. This panel is only the tutorial control surface." class="hint"/>
-            <ui:VisualElement class="row">
-                <ui:Button name="PreviousStepButton" text="Previous" class="secondary-button row-button row-button-left"/>
-                <ui:Button name="NextStepButton" text="Next" class="primary-button row-button"/>
-            </ui:VisualElement>
+    <ui:VisualElement name="Screen" data-source-type="Cubetorial.Tutorials.Scripts.TutorialGuide, Assembly-CSharp" class="screen lesson-screen">
+        <ui:VisualElement class="panel lesson-panel">
+            <ui:Label text="Lesson player" data-source-path="titleKey" name="GuideTitle" class="title"/>
+            <ui:ScrollView name="GuideScroll" mode="Vertical" class="guide-scroll">
+                <ui:VisualElement name="GuideContent" class="guide-content"/>
+            </ui:ScrollView>
             <ui:Button name="LessonBackButton" text="Back to guides" class="secondary-button"/>
         </ui:VisualElement>
     </ui:VisualElement>

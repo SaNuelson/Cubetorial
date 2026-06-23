@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Cubetorial.Model;
 using Cubetorial.Model.Base;
-using Cubetorial.Presentation.Scripts.View;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -26,8 +25,8 @@ namespace Cubetorial.Tutorials.Scripts
     {
         [TextArea]
         public string title;
-        
-        [CanBeNull] public StateSetup stateSetup;
+
+        [HideLabel, InlineProperty, CanBeNull] public StateSetup stateSetup;
     }
 
     [Serializable]

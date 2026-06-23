@@ -12,6 +12,7 @@
 
 .screen {
     flex-grow: 1;
+    background-color: var(--background);
     padding: 24px;
     justify-content: center;
 }
@@ -25,6 +26,67 @@
     border-color: var(--panel-border);
     border-radius: 8px;
     padding: 20px;
+}
+
+.lesson-screen {
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+.lesson-panel {
+    align-self: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    max-height: 62%;
+}
+
+.guide-scroll {
+    flex-grow: 1;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.guide-content {
+    flex-grow: 1;
+}
+
+.guide-section {
+    margin-bottom: 14px;
+}
+
+.guide-section-title {
+    font-size: 19px;
+    -unity-font-style: bold;
+    color: var(--text);
+    white-space: normal;
+    margin-bottom: 8px;
+}
+
+.guide-section-children {
+    flex-grow: 1;
+}
+
+.guide-block {
+    background-color: var(--secondary);
+    border-width: 1px;
+    border-color: var(--panel-border);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.guide-block-title {
+    font-size: 16px;
+    -unity-font-style: bold;
+    color: var(--text);
+    white-space: normal;
+    margin-bottom: 6px;
+}
+
+.guide-block-body {
+    font-size: 14px;
+    color: var(--muted);
+    white-space: normal;
 }
 
 .title {
