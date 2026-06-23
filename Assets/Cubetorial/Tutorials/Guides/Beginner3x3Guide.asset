@@ -25,6 +25,7 @@ MonoBehaviour:
       data:
         title: First layer orientation
         stateSetup:
+          isEnabled: 1
           mode: 1
           scrambleMoves:
           - R
@@ -43,7 +44,8 @@ MonoBehaviour:
       data:
         title: Start from a fixed scramble
         stateSetup:
-          mode: 1
+          isEnabled: 1
+          mode: 0
           scrambleMoves:
           - R
           - U
@@ -52,7 +54,8 @@ MonoBehaviour:
           - F
           - U
           - F'
-        body: This guide starts from a known scramble so the lesson player can show the same pieces every time.
+        body: This guide starts from a known scramble so the lesson player can show
+          the same pieces every time.
         actions:
         - rid: 1002
     - rid: 1002
@@ -65,9 +68,12 @@ MonoBehaviour:
       data:
         title: Watch the setup move
         stateSetup:
+          isEnabled: 1
           mode: 0
-          scrambleMoves: []
-        body: The first move turns the top layer so the target edge can be lined up before insertion.
+          scrambleMoves:
+          - 
+        body: The first move turns the top layer so the target edge can be lined
+          up before insertion.
         actions:
         - rid: 1006
         - rid: 1007
@@ -84,9 +90,12 @@ MonoBehaviour:
       data:
         title: Check the result
         stateSetup:
+          isEnabled: 1
           mode: 0
-          scrambleMoves: []
-        body: After the move, the highlighted piece is easier to compare against its target slot.
+          scrambleMoves:
+          - 
+        body: After the move, the highlighted piece is easier to compare against
+          its target slot.
         actions:
         - rid: 1011
         - rid: 1012
@@ -100,4 +109,5 @@ MonoBehaviour:
       type: {class: TutorialAnnotation, ns: Cubetorial.Tutorials.Scripts, asm: Assembly-CSharp}
       data:
         annotatedCubeId: front_top_slot
-        text: This placeholder target id gives the UI something to show before real view bindings exist.
+        text: This placeholder target id gives the UI something to show before real
+          view bindings exist.

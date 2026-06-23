@@ -1,0 +1,27 @@
+{
+  "$schema": "https://dotnet.github.io/docfx/schemas/docfx.schema.json",
+  "build": {
+    "content": [
+      {
+        "files": [
+          "Docs/**/*.md",
+          "Docs/**/toc.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "Docs/images/**"
+        ],
+        "exclude": [
+          "**/.git/**"
+        ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "Cubetorial Docs"
+    }
+  }
+}

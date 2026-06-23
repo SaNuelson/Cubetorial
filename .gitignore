@@ -75,6 +75,9 @@ mono_crash.*
 *.unitypackage.meta
 *.app
 
+# DocFX generated site
+/_site/
+
 # Crashlytics generated file
 crashlytics-build.properties
 
