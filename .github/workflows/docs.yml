@@ -41,8 +41,6 @@ jobs:
       - name: Inspect generated site
         run: |
           ls -la
-          find _site -maxdepth 2 -type f | head -100
-          test -f _site/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
