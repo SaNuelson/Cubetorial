@@ -41,6 +41,8 @@ jobs:
       - name: Inspect generated site
         run: |
           ls -la
+          ls -la _site
+          
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
