@@ -1,0 +1,25 @@
+name: Deploy DocFX to GitHub Pages
+on:
+ push:
+   branches:
+     - main
+ workflow_dispatch:
+permissions:
+ contents: read
+ pages: write
+ id-token: write
+jobs:
+ deploy:
+   runs-on: ubuntu-latest
+   steps:
+     
+     - name: Checkout repository
+       uses: actions/checkout@v4
+
+     - name: Deploy DocFX Pages
+       uses: sator-imaging/docfx-pages@v1
+       id: deployment
+       with:
+         app_name: 'Cubetorial Documentation'
+         site_title: 'Cubetorial Wiki'
+         site_footer: 'Smug Sloth Studios'
