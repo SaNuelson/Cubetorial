@@ -16,4 +16,3 @@ These docs are the source of truth for product behavior, architecture direction,
 - Product specs describe user-facing behavior and interaction rules.
 - Architecture notes describe durable code boundaries and system design.
 - Prototype notes describe temporary implementation flow and known shortcuts.
-
