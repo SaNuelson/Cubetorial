@@ -4,6 +4,8 @@
   items:
     - name: Controls
       href: product/controls.md
+    - name: Tutorial Guide Markdown
+      href: product/tutorial-guide-markdown.md
 - name: Architecture
   items:
     - name: Overview

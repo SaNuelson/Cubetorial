@@ -1,16 +1,33 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using View;
 
 public class PuzzleController : MonoBehaviour
 {
     public PuzzleView Puzzle;
 
+    private void Start()
+    {
+        if (Puzzle is null)
+        {
+            Debug.LogError("PuzzleView is not assigned!");
+            return;
+        }
+
+        Initialize();
+    }
+    
     public void Update()
     {
         HandleCamera();
         HandleCube();
     }
 
+    private void Initialize()
+    {
+        
+    }
+    
     private void HandleCamera()
     {
         var horizontal = Input.GetAxis("Horizontal");
