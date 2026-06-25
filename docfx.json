@@ -6,7 +6,9 @@
         "files": [
           "Docs/**/*.md",
           "Docs/**/toc.yml"
-        ]
+        ],
+        "src": "Docs",
+        "dst": "."
       }
     ],
     "resource": [
