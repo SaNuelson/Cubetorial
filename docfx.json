@@ -4,8 +4,8 @@
     "content": [
       {
         "files": [
-          "Docs/**/*.md",
-          "Docs/**/toc.yml"
+          "**/*.md",
+          "**/toc.yml"
         ],
         "src": "Docs",
         "dst": "."
