@@ -8,7 +8,12 @@
           "**/toc.yml"
         ],
         "src": "Docs",
-        "dst": "."
+        "dst": ".",
+        "markdownEngineProperties": {
+          "alerts": {
+            "TODO": "alert alert-secondary"
+          }
+        }
       }
     ],
     "resource": [
@@ -24,6 +29,10 @@
     "dest": "_site",
     "globalMetadata": {
       "_appTitle": "Cubetorial Docs"
-    }
+    },
+    "template": [
+      "default",
+      "modern"
+    ]
   }
 }

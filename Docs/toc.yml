@@ -1,16 +1,8 @@
 - name: Home
   href: index.md
 - name: Product
-  items:
-    - name: Controls
-      href: product/controls.md
-    - name: Tutorial Guide Markdown
-      href: product/tutorial-guide-markdown.md
+  href: product/toc.yml
 - name: Architecture
-  items:
-    - name: Overview
-      href: architecture/overview.md
+  href: architecture/toc.yml
 - name: Prototypes
-  items:
-    - name: UI Prototype Flow
-      href: prototypes/UIPrototypeFlow.md
+  href: prototypes/toc.yml
