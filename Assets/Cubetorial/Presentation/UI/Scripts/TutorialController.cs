@@ -35,7 +35,7 @@ namespace Cubetorial.Presentation.UI.Scripts
                 return;
             }
 
-            guideTitle.text = guide.titleKey; // later: localization lookup
+            guideTitle.text = guide.title;
             guideContent.Clear();
 
             foreach (var node in guide.sections)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Cubetorial.Model;
+using UnityEngine;
 
 namespace Cubetorial.Tutorials.Scripts
 {
@@ -13,33 +14,37 @@ namespace Cubetorial.Tutorials.Scripts
 
         public static void ImportInto(TutorialGuide guide, string markdown)
         {
-            if (guide == null)
+            if (guide is null)
                 throw new ArgumentNullException(nameof(guide));
 
             var parsed = Parse(markdown);
 
-            guide.titleKey = parsed.titleKey;
-            guide.descriptionKey = parsed.descriptionKey;
+            guide.guideId = parsed.guideId;
+            guide.title = parsed.title;
+            guide.description = parsed.description;
             guide.family = parsed.family;
             guide.sections = parsed.sections;
         }
 
         public static string Export(TutorialGuide guide)
         {
-            if (guide == null)
+            if (guide is null)
                 throw new ArgumentNullException(nameof(guide));
 
             var builder = new StringBuilder();
             builder.AppendLine("---");
-            builder.AppendLine($"titleKey: {guide.titleKey}");
-            builder.AppendLine($"descriptionKey: {guide.descriptionKey}");
+            builder.AppendLine($"guideId: {guide.guideId}");
             builder.AppendLine($"family: {guide.family}");
             builder.AppendLine("---");
             builder.AppendLine();
 
+            builder.AppendLine($"# {guide.title}");
+            builder.AppendLine(guide.description);
+            builder.AppendLine();
+            
             foreach (var section in guide.sections)
             {
-                AppendNode(builder, section, 1);
+                AppendNode(builder, section, 2);
             }
 
             return builder.ToString();
@@ -50,6 +55,8 @@ namespace Cubetorial.Tutorials.Scripts
             var lines = SplitLines(markdown);
             var parsed = new ParsedGuide();
             var index = ParseFrontmatter(lines, parsed);
+            index = ParseGuideHeader(lines, index, parsed);
+
             var sectionStack = new Stack<(int Level, GuideSection Section)>();
             GuideBlock currentBlock = null;
             var paragraphLines = new List<string>();
@@ -71,6 +78,9 @@ namespace Cubetorial.Tutorials.Scripts
                     FlushParagraph(currentBlock, paragraphLines);
 
                     if (headingLevel == 1)
+                        throw new FormatException("Only one level 1 heading is allowed. Use level 2 headings for guide sections.");
+
+                    if (headingLevel == 2)
                     {
                         var section = new GuideSection { title = headingText };
                         parsed.sections.Add(section);
@@ -103,6 +113,40 @@ namespace Cubetorial.Tutorials.Scripts
 
             FlushParagraph(currentBlock, paragraphLines);
             return parsed;
+        }
+
+        private static int ParseGuideHeader(string[] lines, int index, ParsedGuide parsed)
+        {
+            index = SkipBlankLines(lines, index);
+
+            if (index >= lines.Length)
+                return index;
+
+            var firstLine = lines[index].Trim();
+            if (!TryParseHeading(firstLine, out var headingLevel, out var headingText) || headingLevel != 1)
+                throw new FormatException("Tutorial guide markdown must start with a level 1 heading after frontmatter.");
+
+            parsed.title = headingText;
+            index++;
+
+            var descriptionLines = new List<string>();
+            while (index < lines.Length)
+            {
+                var line = lines[index];
+                var trimmed = line.Trim();
+
+                if (TryParseHeading(trimmed, out _, out _))
+                    break;
+
+                if (TryParseDirective(trimmed, out _))
+                    throw new FormatException("Guide-level directives are not supported. Place directives under a section or block heading.");
+
+                descriptionLines.Add(line.Trim());
+                index++;
+            }
+
+            parsed.description = string.Join(Environment.NewLine, TrimBlankEdges(descriptionLines));
+            return index;
         }
 
         private static void AppendNode(StringBuilder builder, GuideNode node, int headingLevel)
@@ -249,10 +293,14 @@ namespace Cubetorial.Tutorials.Scripts
 
         private static int ParseFrontmatter(string[] lines, ParsedGuide parsed)
         {
-            if (lines.Length == 0 || lines[0].Trim() != "---")
-                return 0;
+            var index = SkipBlankLines(lines, 0);
 
-            var index = 1;
+            if (lines.Length == 0 || lines[index].Trim() != "---")
+            {
+                return 0;
+            }
+
+            index++;
             while (index < lines.Length && lines[index].Trim() != "---")
             {
                 var line = lines[index];
@@ -274,11 +322,8 @@ namespace Cubetorial.Tutorials.Scripts
         {
             switch (key)
             {
-                case "titleKey":
-                    parsed.titleKey = value;
-                    break;
-                case "descriptionKey":
-                    parsed.descriptionKey = value;
+                case "guideId":
+                    parsed.guideId = value;
                     break;
                 case "family":
                     if (Enum.TryParse(value, out PuzzleFamily family))
@@ -351,10 +396,40 @@ namespace Cubetorial.Tutorials.Scripts
             return (text ?? "").Replace("\r\n", "\n").Replace('\r', '\n').Split('\n');
         }
 
+        private static int SkipBlankLines(string[] lines, int index)
+        {
+            while (index < lines.Length && string.IsNullOrWhiteSpace(lines[index]))
+            {
+                index++;
+            }
+
+            return index;
+        }
+
+        private static List<string> TrimBlankEdges(List<string> lines)
+        {
+            var start = 0;
+            while (start < lines.Count && string.IsNullOrWhiteSpace(lines[start]))
+            {
+                start++;
+            }
+
+            var end = lines.Count - 1;
+            while (end >= start && string.IsNullOrWhiteSpace(lines[end]))
+            {
+                end--;
+            }
+
+            return start > end
+                ? new List<string>()
+                : lines.GetRange(start, end - start + 1);
+        }
+
         private sealed class ParsedGuide
         {
-            public string titleKey;
-            public string descriptionKey;
+            public string guideId;
+            public string title;
+            public string description;
             public PuzzleFamily family;
             public List<GuideNode> sections = new();
         }

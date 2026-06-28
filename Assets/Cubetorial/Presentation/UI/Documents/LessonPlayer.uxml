@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/Cubetorial/Presentation/UI/Styles/MainMenu.uss?fileID=7433441132597879392&amp;guid=23872f204808c39438db04d12232c259&amp;type=3#MainMenu"/>
     <ui:VisualElement name="Screen" data-source-type="Cubetorial.Tutorials.Scripts.TutorialGuide, Assembly-CSharp" class="screen lesson-screen">
         <ui:VisualElement class="panel lesson-panel">
-            <ui:Label text="Lesson player" data-source-path="titleKey" name="GuideTitle" class="title"/>
+            <ui:Label text="Lesson player" data-source-path="title" name="GuideTitle" class="title"/>
             <ui:ScrollView name="GuideScroll" mode="Vertical" class="guide-scroll">
                 <ui:VisualElement name="GuideContent" class="guide-content"/>
             </ui:ScrollView>

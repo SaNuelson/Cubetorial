@@ -1,0 +1,307 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806258deec9c4ea7be7deea181437c37, type: 3}
+  m_Name: Test3x3Guide
+  m_EditorClassIdentifier: Assembly-CSharp::Cubetorial.Tutorials.Scripts.TutorialGuide
+  guideId: rubik3x3.beginner
+  language: 
+  family: 0
+  title: "Beginner's Guide to the 3\xD73 Rubik's Cube"
+  description: Learn the beginner method by understanding *why* each move works,
+    not just memorizing algorithms.
+  sections:
+  - rid: 2637682859175837784
+  - rid: 2637682859175837785
+  references:
+    version: 2
+    RefIds:
+    - rid: 2637682859175837784
+      type: {class: GuideSection, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Before We Begin
+        stateSetup:
+          isEnabled: 0
+          mode: 0
+          scrambleMoves: []
+        nodes:
+        - rid: 2637682859175837786
+        - rid: 2637682859175837787
+        - rid: 2637682859175837788
+        - rid: 2637682859175837789
+    - rid: 2637682859175837785
+      type: {class: GuideSection, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: The White Cross
+        stateSetup:
+          isEnabled: 0
+          mode: 0
+          scrambleMoves: []
+        nodes:
+        - rid: 2637682859175837790
+        - rid: 2637682859175837791
+        - rid: 2637682859175837792
+        - rid: 2637682859175837793
+        - rid: 2637682859175837794
+        - rid: 2637682859175837795
+    - rid: 2637682859175837786
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Meet the Cube
+        stateSetup:
+          isEnabled: 1
+          mode: 0
+          scrambleMoves:
+          - 'text:'
+          - '"Center'
+          - pieces
+          - never
+          - move
+          - relative
+          - to
+          - each
+          - other.
+          - They
+          - determine
+          - the
+          - color
+          - of
+          - each
+          - face."
+        body: 'Before learning to solve the cube, let''s become familiar with its
+          pieces.
+
+          
+
+          A Rubik''s Cube is made of three different
+          kinds of pieces:
+
+          
+
+          - Centers
+
+          - Edges
+
+          -
+          Corners'
+        actions: []
+    - rid: 2637682859175837787
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Centers Define the Faces
+        stateSetup:
+          isEnabled: 1
+          mode: 0
+          scrambleMoves:
+          - highlight
+          - centers
+        body: "Notice that every face has one center piece.\r\n\r\nThe white center
+          always belongs opposite the yellow center.\r\n\r\nLikewise:\r\n\r\n- Blue
+          \u2194 Green\r\n- Red \u2194 Orange\r\n\r\nThese relationships never change."
+        actions: []
+    - rid: 2637682859175837788
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Edge Pieces
+        stateSetup:
+          isEnabled: 1
+          mode: 0
+          scrambleMoves:
+          - highlight
+          - edges
+        body: 'Edge pieces have exactly two stickers.
+
+          
+
+          Every
+          edge belongs between two centers.'
+        actions: []
+    - rid: 2637682859175837789
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Corner Pieces
+        stateSetup:
+          isEnabled: 1
+          mode: 0
+          scrambleMoves:
+          - highlight
+          - corners
+        body: 'Corner pieces have three stickers.
+
+          
+
+          Each corner
+          belongs between three centers.'
+        actions: []
+    - rid: 2637682859175837790
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Our First Goal
+        stateSetup:
+          isEnabled: 1
+          mode: 0
+          scrambleMoves:
+          - state
+          - solved_cross_demo
+        body: 'The first milestone is called the **White Cross**.
+
+          
+
+          This
+          means placing the four white edge pieces around the white center.
+
+          
+
+          More
+          importantly, the side colors must also match their neighboring centers.'
+        actions: []
+    - rid: 2637682859175837791
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: A Correct Cross
+        stateSetup:
+          isEnabled: 1
+          mode: 0
+          scrambleMoves:
+          - highlight
+          - solved_cross
+        body: 'This is what a finished white cross looks like.
+
+          
+
+          Notice
+          that every edge matches **two** center pieces.
+
+          
+
+          Many
+          beginners stop after matching white.
+
+          
+
+          Don''t.
+
+          
+
+          Matching
+          the side colors is equally important.'
+        actions: []
+    - rid: 2637682859175837792
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Finding a White Edge
+        stateSetup:
+          isEnabled: 1
+          mode: 0
+          scrambleMoves:
+          - highlight
+          - edge_white_blue
+        body: 'Let''s solve one edge together.
+
+          
+
+          This lesson
+          starts from a fixed puzzle state.
+
+          
+
+          Look around
+          the cube.
+
+          
+
+          Can you find the white-blue edge?'
+        actions: []
+    - rid: 2637682859175837793
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Bring the Edge Above Its Destination
+        stateSetup:
+          isEnabled: 1
+          mode: 0
+          scrambleMoves:
+          - highlight
+          - blue_center
+        body: 'First, rotate the upper layer until the blue sticker lines up with
+          the blue center.
+
+          
+
+          Now the edge is positioned above
+          the slot where it belongs.'
+        actions:
+        - rid: 2637682859175837796
+        - rid: 2637682859175837797
+    - rid: 2637682859175837794
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Insert the Edge
+        stateSetup:
+          isEnabled: 1
+          mode: 0
+          scrambleMoves:
+          - highlight
+          - solved_edge
+        body: 'Rotate the front face twice.
+
+          
+
+          The edge is
+          now solved.
+
+          
+
+          Notice that both colors match their
+          centers.'
+        actions:
+        - rid: 2637682859175837798
+        - rid: 2637682859175837799
+    - rid: 2637682859175837795
+      type: {class: GuideBlock, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        title: Recap
+        stateSetup:
+          isEnabled: 0
+          mode: 0
+          scrambleMoves: []
+        body: 'To solve an edge of the white cross:
+
+          
+
+          - Find
+          the edge.
+
+          - Match its side color with the correct center.
+
+          -
+          Insert it into the white face.
+
+          
+
+          We''ll repeat this
+          idea for the remaining edge cases.'
+        actions: []
+    - rid: 2637682859175837796
+      type: {class: TutorialMove, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        moveId: U
+    - rid: 2637682859175837797
+      type: {class: TutorialMove, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        moveId: U
+    - rid: 2637682859175837798
+      type: {class: TutorialMove, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        moveId: F
+    - rid: 2637682859175837799
+      type: {class: TutorialMove, ns: Cubetorial.Tutorials.Scripts, asm: Cubetorial.Tutorials}
+      data:
+        moveId: F

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Cubetorial.Model;
 using Cubetorial.Model.Base;
-using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,9 +11,20 @@ namespace Cubetorial.Tutorials.Scripts
     [CreateAssetMenu(fileName = "TutorialGuide", menuName = "Cubetorial/Tutorial Guide", order = 1)]
     public class TutorialGuide : ScriptableObject
     {
-        public string titleKey;
-        public string descriptionKey;
+        /// <summary>
+        /// Unique identifier for a group of guides.
+        /// </summary>
+        public string guideId;
+        
+        /// <summary>
+        /// Language identifier for this guide.
+        /// </summary>
+        public string language;
+
         public PuzzleFamily family;
+        
+        public string title;
+        public string description;
         
         [SerializeReference]
         public List<GuideNode> sections = new();
@@ -26,7 +36,7 @@ namespace Cubetorial.Tutorials.Scripts
         [TextArea]
         public string title;
 
-        [HideLabel, InlineProperty, CanBeNull] public StateSetup stateSetup;
+        [HideLabel, InlineProperty] public StateSetup stateSetup;
     }
 
     [Serializable]
@@ -44,12 +54,5 @@ namespace Cubetorial.Tutorials.Scripts
 
         [SerializeReference]
         public List<TutorialAction> actions = new();
-
-        [ButtonGroup("Create action")]
-        [Button("Move")]
-        public void CreateMoveAction()
-        {
-            actions.Add(new TutorialMove());
-        }
     }
 }

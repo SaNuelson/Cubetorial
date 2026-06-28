@@ -1,0 +1,17 @@
+{
+  "name": "Cubetorial.Tutorials",
+  "rootNamespace": "Cubetorial.Tutorials",
+  "references": [
+    "dev.sanuel.cubetorial.model",
+    "Cubetorial.Odin.Attributes"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

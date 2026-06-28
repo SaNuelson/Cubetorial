@@ -1,0 +1,22 @@
+{
+  "name": "Cubetorial.Tutorials.EditorTests",
+  "rootNamespace": "Cubetorial.Tutorials.Tests",
+  "references": [
+    "Cubetorial.Tutorials",
+    "dev.sanuel.cubetorial.model"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "noEngineReferences": false
+}
