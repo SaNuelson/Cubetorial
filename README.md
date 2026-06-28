@@ -2,29 +2,29 @@
 
 Cubetorial is an educational app for learning twisty puzzles.
 
-It's core concept is to make learning efficient through:
-- visualizing the tutorial steps alongside the explanation
-- explaining rationale behind the taken steps
+Its core concept is to make learning efficient through:
+- visualizing guide blocks alongside authored explanations
+- explaining the rationale behind the moves and visual annotations
 
 Architecturally, core concepts are:
 - separation of layers:
-  - **Core layer** 
-    - compatible with variety of puzzles - 3x3, 4x4, Skewb, Pyraminx, ...
+  - **Puzzle model layer**
+    - Unity-free and compatible with a variety of puzzles - 3x3, 4x4, Skewb, Pyraminx, ...
   - **Visualization layer**
-    - scriptable model view wrapper for arbitrary puzzle
-    - adaptible puzzle view controller
-  - **Tutorial layer**
-    - independent of other layers (uses visualization API)
+    - scriptable puzzle view wrapper for arbitrary puzzles
+    - adaptable puzzle view controller
+  - **Guide layer**
+    - authored guide structure and actions independent of scene objects
     - supporting localization
-    - easy to add new tutorials (Tutorial editor?)
+    - easy to add new guides (guide editor?)
 
 ---
 
 ## Core Concepts (V1)
 
-### Visual Tutorials
+### Visual Guides
 
-Tutorials are accompanied by a simulated puzzle.
+Guides are accompanied by a simulated puzzle.
 
 As the user progresses through a guide, the puzzle updates to demonstrate the concepts being explained.
 
@@ -32,11 +32,11 @@ This includes not only applying rotations according to the guide, but also movin
 
 ---
 
-### Tutorial-Driven Design
+### Guide-Driven Design
 
-Tutorials are independent of puzzle implementations.
+Guides are independent of puzzle implementations.
 
-A tutorial interacts with the application through a set of actions, such as:
+A guide interacts with the application through a set of actions, such as:
 
 * Move
 * Highlight
@@ -44,26 +44,26 @@ A tutorial interacts with the application through a set of actions, such as:
 * Focus
 * Annotation
 
-This allows tutorials to describe *what should happen* without needing to know *how it is rendered*.
+This allows guides to describe *what should happen* without needing to know *how it is rendered*.
 
 ---
 
 ### Scenario-Based Teaching
 
-In cases when parts of a tutorial differ based on the cube configuration, tutorial layer offers the option of a case-based section.
+In cases when parts of a guide differ based on the puzzle state, the guide layer offers the option of a case-based section.
 
-These cases allow tutorials to diverge from a current scramble and show solution on a different one.
+These cases allow guides to diverge from the current puzzle state and demonstrate a known case state.
 
 ---
 
-### Puzzle-Agnostic Core
+### Puzzle-Agnostic Model
 
-The underlying model is designed to support different puzzle families.
+The puzzle model is designed to support different puzzle families.
 
 Adding a new puzzle family then consists of 
-- creating a builder for its model
+- creating a definition for its model
 - creating a scriptable view for its defined moves
-- adding a 3D model and binding its core and pieces to the view
+- adding a 3D model and binding its pieces to the puzzle view
 
 Current implementation seemingly supports any twisty puzzle families.
 
@@ -73,11 +73,11 @@ Current implementation seemingly supports any twisty puzzle families.
 
 A natural side effect of the architecture.
 
-Once a puzzle can be simulated and visualized, it can also be explored freely.
+Once a puzzle can be modeled and visualized, it can also be explored freely.
 
-Sandbox mode allows users to experiment with supported puzzles outside tutorials.
+Sandbox mode allows users to experiment with supported puzzles outside guides.
 
-Sandbox uses an adaptible controller, which can exist thanks to the robust nature of puzzle definition - scriptable object for moves contains all necessary information to dynamically generate a set of movements, while the model gives ability to check for specific states of the puzzle i.e., if it is solved.
+Sandbox uses an adaptable controller, which can exist because move discovery is data-driven: the puzzle model defines legal moves and affected slots, while the puzzle view definition supplies the visual pivots, axes, and arcs needed to present them.
 
 ---
 
@@ -103,7 +103,7 @@ This system becomes the foundation for several later features.
 
 Individual puzzle families may provide solvers.
 
-The long-term goal is for solvers to be built from the same building blocks used by tutorials:
+The long-term goal is for solvers to be built from the same building blocks used by guides:
 
 * pattern recognition
 * state queries
@@ -113,9 +113,9 @@ This keeps solver implementations independent of visualization and UI.
 
 ---
 
-### Interactive Tutorials
+### Interactive Guides
 
-Tutorials may eventually ask the user to perform tasks themselves.
+Guides may eventually ask the user to perform tasks themselves.
 
 For example:
 
@@ -124,7 +124,7 @@ For example:
 * verify completion using pattern recognition
 * continue once the objective is satisfied
 
-This transforms tutorials from passive demonstrations into guided exercises.
+This transforms guides from passive demonstrations into guided exercises.
 
 ---
 
@@ -132,7 +132,7 @@ This transforms tutorials from passive demonstrations into guided exercises.
 
 The project is split into three layers.
 
-### Core
+### Puzzle Model
 
 Handles puzzle logic.
 
@@ -145,7 +145,7 @@ Responsible for:
 * pattern recognition
 * solver-facing APIs
 
-The core should remain independent of Unity.
+The puzzle model should remain independent of Unity.
 
 ---
 
@@ -161,11 +161,11 @@ Responsible for:
 * input
 * UI
 
-The presentation layer consumes the core model.
+The presentation layer consumes the puzzle model.
 
 ---
 
-### Tutorials
+### Guide
 
 Handles educational content.
 
@@ -177,7 +177,7 @@ Responsible for:
 * actions
 * explanations
 
-The tutorial layer drives the presentation layer while remaining independent of puzzle rendering details.
+The guide layer drives the presentation layer while remaining independent of puzzle rendering details.
 
 ---
 
@@ -195,6 +195,6 @@ Implemented:
 In Progress:
 
 * Guide player UI
-* Tutorial authoring format
+* Guide authoring format
 * Guide action system
 * Mobile-first lesson experience

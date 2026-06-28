@@ -1,6 +1,8 @@
 - name: Product
   href: index.md
+- name: Product Vision
+  href: vision.md
 - name: Controls
   href: controls.md
-- name: Tutorial Guide Markdown
+- name: Guide Markdown
   href: tutorial-guide-markdown.md

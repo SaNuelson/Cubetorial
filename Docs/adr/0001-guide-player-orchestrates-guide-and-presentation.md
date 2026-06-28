@@ -1,0 +1,3 @@
+# Guide Player Orchestrates Guide and Presentation
+
+Cubetorial guides are authored educational content, while puzzle presentation owns Unity visualization and animation. We decided that the guide player is a separate application-edge coordinator: guide data does not depend on puzzle model or presentation types, puzzle presentation depends on the puzzle model, and the guide player resolves guide-owned symbolic puzzle references against the selected puzzle model and presentation interfaces. This keeps authored guides portable and keeps presentation reusable for both guides and sandbox, at the cost of an explicit orchestration layer that must translate guide actions into presentation calls.

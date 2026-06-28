@@ -1,0 +1,4 @@
+- name: ADRs
+  href: index.md
+- name: Guide Player Orchestrates Guide and Presentation
+  href: 0001-guide-player-orchestrates-guide-and-presentation.md

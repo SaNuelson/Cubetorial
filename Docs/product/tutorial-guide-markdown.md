@@ -1,34 +1,48 @@
-# Tutorial Guide Markdown
+# Guide Markdown
 
-Tutorial guides are stored as `TutorialGuide` assets. Markdown is an editing format for exporting a guide, making text changes quickly, and importing it back into the asset.
+Guides are currently stored as `TutorialGuide` assets. Markdown is an editing format for exporting a guide, making text and structure changes quickly, and importing it back into the asset.
 
-## Optional Metadata
+> [!TODO]
+> Rename `TutorialGuide` and related editor labels to `Guide` when serialized asset migration is safe.
 
-A guide file may start with an optional metadata header:
+## Metadata
+
+A guide file may start with a metadata header:
 
 ```markdown
 ---
-titleKey: beginner_3x3.title
-descriptionKey: beginner_3x3.description
+guideId: 3x3.beginner
 family: Rubik3
 ---
 ```
 
-When importing into an existing guide, this header can be omitted. Missing metadata keeps the current values on the selected guide asset.
+`guideId` identifies the guide concept, such as `3x3.beginner`. Multiple guide assets may share a `guideId` when they are separate language implementations of the same concept.
+
+`family` identifies the puzzle family used by the guide.
+
+The guide title and description are not frontmatter metadata. They are authored markdown content directly after the header.
+
+```markdown
+# Beginner Method
+
+Learn a practical first method for solving a 3x3 cube.
+```
 
 ## Sections And Blocks
 
 Use headings to structure the guide:
 
 ```markdown
-# First layer
+## First layer
 
-## White cross
+### White cross
 
 Find an edge that belongs in the white cross.
 ```
 
-`#` headings create guide sections. Deeper headings create guide blocks under the current section. Paragraph text below a block heading becomes the block body.
+The first `#` heading is the guide title. Text beneath it, up to the next heading, becomes the guide description.
+
+`##` headings create top-level guide sections. Deeper headings create guide blocks under the current section. Paragraph text below a block heading becomes the block body.
 
 ## State Setup
 
@@ -38,7 +52,7 @@ Use quoted directive lines to set up puzzle state for the current section or blo
 > # R U R' U'
 ```
 
-The leading `#` means scramble from solved.
+The leading `#` means load from solved before applying the setup moves.
 
 ```markdown
 > R U R' U'
@@ -76,7 +90,7 @@ Adds annotation text to selected stickers.
 
 ## Sticker Selection
 
-Sticker selections use `cubie:faces`. By default, selectors target slots: the current position on the puzzle, regardless of which physical piece is there.
+Sticker selections use `slot:faces`. By default, selectors target slots: the current position on the puzzle, regardless of which physical piece is there.
 
 ```markdown
 URF:UR
@@ -143,16 +157,25 @@ Selects the `F` sticker on every physical piece whose home id contains both `D` 
 ## Example
 
 ```markdown
-# First layer orientation
+---
+guideId: 3x3.beginner
+family: Rubik3
+---
+
+# Beginner Method
+
+Learn a practical first method for solving a 3x3 cube.
+
+## First layer orientation
 > # R U R' U' F U F'
 
-## Start from a fixed scramble
+### Start from a fixed setup
 
-This guide starts from a known scramble so the lesson player can show the same pieces every time.
+This guide starts from a known setup so the guide player can show the same pieces every time.
 
 > text DF~:F "These faces need to be solved next"
 
-## Watch the setup move
+### Watch the setup move
 
 The first move turns the top layer so the target edge can be lined up before insertion.
 

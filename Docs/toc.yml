@@ -4,5 +4,7 @@
   href: product/toc.yml
 - name: Architecture
   href: architecture/toc.yml
+- name: ADRs
+  href: adr/toc.yml
 - name: Prototypes
   href: prototypes/toc.yml
